@@ -1,526 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AURA Z · xSUJAL</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0a0a12;
-      color: #e8edf5;
-      min-height: 100vh;
-      padding: 20px;
-      background-image: radial-gradient(circle at 20% 20%, rgba(30, 30, 80, 0.3), transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(80, 20, 60, 0.2), transparent 50%);
-    }
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: #1a1a26; }
-    ::-webkit-scrollbar-thumb { background: #4f8cff; border-radius: 10px; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA Z · Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #06080f;
+            color: #e8edf5;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: radial-gradient(circle at 15% 20%, rgba(79, 140, 255, 0.08), transparent 50%),
+                              radial-gradient(circle at 85% 80%, rgba(255, 59, 92, 0.06), transparent 50%);
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0a0e17; }
+        ::-webkit-scrollbar-thumb { background: #4f8cff; border-radius: 10px; }
 
-    .container { max-width: 1100px; margin: 0 auto; }
+        .container { max-width: 1200px; margin: 0 auto; }
 
-    /* ─── HEADER ─── */
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-      padding: 16px 0 20px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      margin-bottom: 28px;
-    }
-    .logo {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 800;
-      font-size: 24px;
-      letter-spacing: -0.5px;
-    }
-    .logo .x { color: #4f8cff; text-shadow: 0 0 20px #4f8cff44; }
-    .logo .sujal { color: #ffffff; }
-    .logo .badge {
-      font-size: 10px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.04);
-      padding: 2px 12px;
-      border-radius: 40px;
-      margin-left: 8px;
-      border: 1px solid rgba(255,255,255,0.03);
-    }
-    .header-stats {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .hstat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .hstat .num {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 1.2;
-    }
-    .hstat .num.cyan { color: #4f8cff; }
-    .hstat .num.green { color: #34c759; }
-    .hstat .num.amber { color: #ff9f0a; }
-    .hstat .lbl {
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: rgba(255,255,255,0.2);
-      font-weight: 500;
-      margin-top: 2px;
-    }
-    .btn-primary {
-      background: #4f8cff;
-      border: none;
-      color: #0a0a12;
-      font-weight: 700;
-      font-size: 13px;
-      padding: 10px 24px;
-      border-radius: 40px;
-      cursor: pointer;
-      transition: all 0.25s;
-      font-family: 'Inter', sans-serif;
-      box-shadow: 0 4px 20px rgba(79,140,255,0.15);
-    }
-    .btn-primary:hover { background: #3a7ae6; transform: translateY(-1px); box-shadow: 0 8px 30px rgba(79,140,255,0.25); }
-    .btn-danger { background: #ff453a; color: #fff; }
-    .btn-danger:hover { background: #e0352b; }
-    .btn-success { background: #34c759; color: #0a0a12; }
-    .btn-success:hover { background: #2db84d; }
-    .btn-outline {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      color: rgba(255,255,255,0.5);
-    }
-    .btn-outline:hover { background: rgba(255,255,255,0.06); color: #fff; }
+        /* ─── HEADER ─── */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 16px 24px;
+            background: rgba(12, 18, 34, 0.5);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 18px;
+            margin-bottom: 24px;
+        }
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+        .logo .x { color: #4f8cff; text-shadow: 0 0 30px #4f8cff55, 0 0 60px #4f8cff22; }
+        .logo .sujal { color: #ffffff; }
+        .logo .z { color: #ff3b5c; text-shadow: 0 0 30px #ff3b5c55, 0 0 60px #ff3b5c22; }
+        .logo .badge {
+            font-size: 9px;
+            font-weight: 400;
+            background: rgba(79,140,255,0.1);
+            border: 1px solid rgba(79,140,255,0.08);
+            padding: 2px 12px;
+            border-radius: 40px;
+            margin-left: 8px;
+            color: #4f8cff;
+            letter-spacing: 1px;
+        }
+        .header-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 8px 18px;
+            border-radius: 40px;
+            border: none;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+        }
+        .btn-primary { background: #4f8cff; color: #06080f; box-shadow: 0 4px 20px rgba(79,140,255,0.15); }
+        .btn-primary:hover { background: #3a7ae6; transform: translateY(-1px); box-shadow: 0 8px 30px rgba(79,140,255,0.25); }
+        .btn-success { background: #34c759; color: #06080f; }
+        .btn-success:hover { background: #2db84d; transform: translateY(-1px); }
+        .btn-danger { background: #ff453a; color: #fff; }
+        .btn-danger:hover { background: #e0352b; transform: translateY(-1px); }
+        .btn-outline {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.04);
+            color: rgba(255,255,255,0.4);
+        }
+        .btn-outline:hover { background: rgba(255,255,255,0.04); color: #fff; }
+        .btn-glow {
+            background: linear-gradient(135deg, #4f8cff, #ff3b5c);
+            color: #fff;
+            box-shadow: 0 4px 30px rgba(79,140,255,0.2);
+        }
+        .btn-glow:hover { transform: translateY(-1px) scale(1.02); box-shadow: 0 8px 40px rgba(79,140,255,0.35); }
 
-    /* ─── CARDS ─── */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-      margin-top: 12px;
-    }
-    .card {
-      background: rgba(18, 18, 34, 0.6);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.04);
-      border-radius: 16px;
-      padding: 18px 20px;
-      transition: all 0.3s ease;
-    }
-    .card:hover { border-color: rgba(79,140,255,0.15); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
-    .card-top {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .status-dot.on { background: #34c759; box-shadow: 0 0 12px #34c75966; animation: pulse 2s infinite; }
-    .status-dot.cooldown { background: #ff9f0a; box-shadow: 0 0 12px #ff9f0a66; animation: pulse 2s infinite; }
-    .status-dot.off { background: #3a3a4c; }
-    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
-    .card-name { font-weight: 600; font-size: 15px; flex: 1; color: #fff; }
-    .card-time { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.15); }
-    .card-stats {
-      display: flex;
-      gap: 14px;
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 12px;
-      color: rgba(255,255,255,0.4);
-    }
-    .card-stats strong { color: #fff; font-weight: 600; }
-    .card-actions { display: flex; gap: 4px; flex-wrap: wrap; }
-    .btn-sm {
-      font-family: 'Inter', sans-serif;
-      font-weight: 500;
-      font-size: 10px;
-      padding: 4px 12px;
-      border-radius: 40px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-sm-start { background: #34c759; color: #0a0a12; }
-    .btn-sm-start:hover { background: #2db84d; }
-    .btn-sm-stop { background: #ff453a; color: #fff; }
-    .btn-sm-stop:hover { background: #e0352b; }
-    .btn-sm-edit { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.03); }
-    .btn-sm-edit:hover { background: rgba(255,255,255,0.08); color: #fff; }
-    .btn-sm-logs { background: rgba(79,140,255,0.06); color: #4f8cff; border: 1px solid rgba(79,140,255,0.04); }
-    .btn-sm-logs:hover { background: rgba(79,140,255,0.12); }
-    .btn-sm-del { background: rgba(255,69,58,0.04); color: #ff453a; border: 1px solid rgba(255,69,58,0.03); padding: 4px 8px; }
-    .btn-sm-del:hover { background: rgba(255,69,58,0.1); }
-    .btn-sm-expand { background: transparent; color: rgba(255,255,255,0.08); border: none; font-size: 14px; cursor: pointer; }
+        /* ─── STATS ─── */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        .stat-card {
+            background: rgba(12, 18, 34, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.02);
+            border-radius: 16px;
+            padding: 16px 20px;
+            transition: 0.3s;
+        }
+        .stat-card:hover { border-color: rgba(79,140,255,0.08); }
+        .stat-card .label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255,255,255,0.15);
+            font-weight: 600;
+        }
+        .stat-card .number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+        .stat-card .number.cyan { color: #4f8cff; text-shadow: 0 0 30px #4f8cff33; }
+        .stat-card .number.green { color: #34c759; text-shadow: 0 0 30px #34c75933; }
+        .stat-card .number.amber { color: #ff9f0a; text-shadow: 0 0 30px #ff9f0a33; }
+        .stat-card .sub { font-size: 10px; color: rgba(255,255,255,0.08); margin-top: 2px; }
 
-    .card-detail {
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,0.04);
-      display: none;
-      font-size: 11px;
-      color: rgba(255,255,255,0.25);
-    }
-    .card-detail.open { display: block; }
-    .gc-pill {
-      display: inline-block;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.03);
-      padding: 2px 10px;
-      border-radius: 40px;
-      margin: 2px 4px 2px 0;
-      font-size: 10px;
-      color: rgba(255,255,255,0.2);
-    }
-    .detail-line { padding: 2px 0; }
-    .last-action-text { color: #4f8cff; font-weight: 500; }
+        /* ─── ACCOUNT GRID ─── */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 12px;
+        }
+        .card {
+            background: rgba(14, 20, 36, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 18px;
+            padding: 18px 20px;
+            transition: all 0.35s ease;
+        }
+        .card:hover {
+            border-color: rgba(79,140,255,0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 50px rgba(0,0,0,0.4);
+        }
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .status-dot.on {
+            background: #34c759;
+            box-shadow: 0 0 12px #34c75966;
+            animation: pulse 1.8s infinite;
+        }
+        .status-dot.cooldown {
+            background: #ff9f0a;
+            box-shadow: 0 0 12px #ff9f0a66;
+            animation: pulse 1.8s infinite;
+        }
+        .status-dot.off { background: #3a3a4c; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        .card-name {
+            font-weight: 600;
+            font-size: 15px;
+            flex: 1;
+            color: #fff;
+            letter-spacing: -0.2px;
+        }
+        .card-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: rgba(255,255,255,0.1);
+        }
+        .card-stats {
+            display: flex;
+            gap: 14px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.25);
+            margin-bottom: 12px;
+        }
+        .card-stats strong { color: #fff; font-weight: 600; }
+        .card-actions {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .btn-sm {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 10px;
+            padding: 4px 12px;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            letter-spacing: 0.2px;
+        }
+        .btn-sm-start { background: #34c759; color: #06080f; }
+        .btn-sm-start:hover { background: #2db84d; }
+        .btn-sm-stop { background: #ff453a; color: #fff; }
+        .btn-sm-stop:hover { background: #e0352b; }
+        .btn-sm-edit {
+            background: rgba(255,255,255,0.02);
+            color: rgba(255,255,255,0.3);
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+        .btn-sm-edit:hover { background: rgba(255,255,255,0.06); color: #fff; }
+        .btn-sm-logs {
+            background: rgba(79,140,255,0.04);
+            color: #4f8cff;
+            border: 1px solid rgba(79,140,255,0.03);
+        }
+        .btn-sm-logs:hover { background: rgba(79,140,255,0.08); }
+        .btn-sm-del {
+            background: rgba(255,69,58,0.03);
+            color: #ff453a;
+            border: 1px solid rgba(255,69,58,0.02);
+            padding: 4px 8px;
+        }
+        .btn-sm-del:hover { background: rgba(255,69,58,0.08); }
+        .btn-sm-expand {
+            background: transparent;
+            color: rgba(255,255,255,0.05);
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 0 4px;
+        }
+        .card-detail {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            display: none;
+            font-size: 11px;
+            color: rgba(255,255,255,0.2);
+        }
+        .card-detail.open { display: block; }
+        .gc-pill {
+            display: inline-block;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.03);
+            padding: 2px 10px;
+            border-radius: 40px;
+            margin: 2px 4px 2px 0;
+            font-size: 10px;
+            color: rgba(255,255,255,0.15);
+        }
+        .detail-line { padding: 2px 0; }
+        .last-action-text { color: #4f8cff; font-weight: 500; }
 
-    /* ─── LOGS ─── */
-    .log-panel {
-      display: none;
-      margin-top: 8px;
-      background: rgba(0,0,0,0.2);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .log-panel.open { display: block; }
-    .log-header {
-      display: flex;
-      justify-content: space-between;
-      padding: 4px 12px;
-      background: rgba(0,0,0,0.15);
-      font-size: 9px;
-      color: rgba(255,255,255,0.1);
-      border-bottom: 1px solid rgba(255,255,255,0.02);
-    }
-    .log-live { color: #34c759; display: flex; align-items: center; gap: 4px; font-weight: 500; }
-    .log-live::before { content: ''; width: 4px; height: 4px; background: #34c759; border-radius: 50%; display: inline-block; animation: live-pulse 1.5s infinite; }
-    @keyframes live-pulse { 0% { opacity: 1; } 50% { opacity: 0.2; } 100% { opacity: 1; } }
-    .log-box {
-      height: 120px;
-      overflow-y: auto;
-      padding: 6px 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 9px;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.15);
-    }
-    .log-line { color: rgba(255,255,255,0.15); }
-    .log-line.ok { color: #34c759; }
-    .log-line.err { color: #ff453a; }
-    .log-line.warn { color: #ff9f0a; }
-    .log-line.info { color: #4f8cff; }
+        /* ─── LOGS ─── */
+        .log-panel {
+            display: none;
+            margin-top: 8px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .log-panel.open { display: block; }
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 12px;
+            background: rgba(0,0,0,0.15);
+            font-size: 9px;
+            color: rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .log-live { color: #34c759; display: flex; align-items: center; gap: 4px; }
+        .log-live::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: #34c759;
+            border-radius: 50%;
+            display: inline-block;
+            animation: live-pulse 1.5s infinite;
+        }
+        @keyframes live-pulse { 0% { opacity: 1; } 50% { opacity: 0.2; } 100% { opacity: 1; } }
+        .log-box {
+            height: 120px;
+            overflow-y: auto;
+            padding: 6px 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.1);
+        }
+        .log-line { color: rgba(255,255,255,0.1); }
+        .log-line.ok { color: #34c759; }
+        .log-line.err { color: #ff453a; }
+        .log-line.warn { color: #ff9f0a; }
+        .log-line.info { color: #4f8cff; }
 
-    /* ─── EMPTY ─── */
-    .empty { text-align: center; padding: 60px 20px; color: rgba(255,255,255,0.06); }
-    .empty-icon { font-size: 36px; margin-bottom: 12px; opacity: 0.2; }
-    .empty-text { font-size: 13px; color: rgba(255,255,255,0.08); }
+        /* ─── EMPTY ─── */
+        .empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255,255,255,0.04);
+        }
+        .empty-icon { font-size: 40px; margin-bottom: 12px; opacity: 0.2; }
+        .empty-text { font-size: 13px; color: rgba(255,255,255,0.06); letter-spacing: 1px; }
 
-    /* ─── MODAL ─── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(6,8,15,0.8);
-      backdrop-filter: blur(20px);
-      z-index: 999;
-      align-items: center;
-      justify-content: center;
-    }
-    .modal-overlay.open { display: flex; }
-    .modal {
-      background: #14141e;
-      border: 1px solid rgba(255,255,255,0.04);
-      border-radius: 20px;
-      padding: 28px 32px;
-      width: 680px;
-      max-width: 96vw;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.8);
-    }
-    .modal-title { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 20px; letter-spacing: -0.5px; }
-    .modal-title .hl { color: #4f8cff; }
-    .form-section { margin-bottom: 18px; }
-    .form-section-title {
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: rgba(255,255,255,0.15);
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .form-group { display: flex; flex-direction: column; gap: 3px; }
-    .form-group.full { grid-column: 1 / -1; }
-    label {
-      font-size: 10px;
-      color: rgba(255,255,255,0.2);
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    input, textarea, select {
-      background: rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.04);
-      color: #fff;
-      padding: 8px 12px;
-      border-radius: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      transition: all 0.2s;
-      outline: none;
-      width: 100%;
-    }
-    input:focus, textarea:focus { border-color: #4f8cff; box-shadow: 0 0 0 3px rgba(79,140,255,0.04); }
-    textarea { resize: vertical; min-height: 48px; }
+        /* ─── MODAL ─── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(6,8,15,0.85);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: #0e1222;
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 24px;
+            padding: 28px 32px;
+            width: 700px;
+            max-width: 96vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+        }
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+        .modal-title .hl { color: #4f8cff; }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .form-group { display: flex; flex-direction: column; gap: 3px; }
+        .form-group.full { grid-column: 1 / -1; }
+        label {
+            font-size: 10px;
+            color: rgba(255,255,255,0.15);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        input, textarea, select {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.03);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            transition: 0.2s;
+            outline: none;
+            width: 100%;
+        }
+        input:focus, textarea:focus { border-color: #4f8cff; box-shadow: 0 0 0 3px rgba(79,140,255,0.03); }
+        textarea { resize: vertical; min-height: 48px; }
 
-    .fetch-row { display: flex; gap: 8px; align-items: flex-end; }
-    .btn-fetch {
-      background: rgba(79,140,255,0.04);
-      border: 1px solid rgba(79,140,255,0.06);
-      color: #4f8cff;
-      padding: 8px 16px;
-      border-radius: 40px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-      white-space: nowrap;
-      font-size: 11px;
-    }
-    .btn-fetch:hover { background: #4f8cff; color: #0a0a12; }
-    #fetch-status { font-size: 10px; color: rgba(255,255,255,0.1); margin-top: 4px; }
+        .fetch-row { display: flex; gap: 8px; align-items: flex-end; flex-wrap: wrap; }
+        .btn-fetch {
+            background: rgba(79,140,255,0.03);
+            border: 1px solid rgba(79,140,255,0.05);
+            color: #4f8cff;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            white-space: nowrap;
+            font-size: 11px;
+        }
+        .btn-fetch:hover { background: #4f8cff; color: #06080f; }
+        #fetch-status { font-size: 10px; color: rgba(255,255,255,0.06); margin-top: 4px; }
+        .gc-picker { margin-top: 8px; display: none; }
+        .gc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            max-height: 140px;
+            overflow-y: auto;
+        }
+        .gc-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            background: rgba(0,0,0,0.12);
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.02);
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+        .gc-item:hover { border-color: rgba(255,255,255,0.04); }
+        .gc-item.selected { border-color: #4f8cff; background: rgba(79,140,255,0.02); }
+        .gc-item input[type=checkbox] { width: 14px; height: 14px; accent-color: #4f8cff; cursor: pointer; }
+        .gc-item-name { flex: 1; color: rgba(255,255,255,0.6); }
+        .gc-item-id { font-size: 9px; color: rgba(255,255,255,0.06); }
 
-    .gc-picker { margin-top: 8px; display: none; }
-    .gc-list {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      max-height: 140px;
-      overflow-y: auto;
-    }
-    .gc-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      background: rgba(0,0,0,0.15);
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.02);
-      cursor: pointer;
-      transition: 0.2s;
-      font-size: 12px;
-    }
-    .gc-item:hover { border-color: rgba(255,255,255,0.04); }
-    .gc-item.selected { border-color: #4f8cff; background: rgba(79,140,255,0.02); }
-    .gc-item input[type=checkbox] { width: 14px; height: 14px; accent-color: #4f8cff; cursor: pointer; }
-    .gc-item-name { flex: 1; color: rgba(255,255,255,0.6); }
-    .gc-item-id { font-size: 9px; color: rgba(255,255,255,0.08); }
+        .msgs-wrap { display: flex; flex-direction: column; gap: 4px; }
+        .msg-row { display: flex; gap: 4px; align-items: flex-start; }
+        .msg-row textarea { flex: 1; }
+        .btn-icon {
+            background: rgba(255,255,255,0.02);
+            border: none;
+            color: rgba(255,255,255,0.06);
+            padding: 6px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .btn-icon:hover { background: rgba(255,69,58,0.06); color: #ff453a; }
 
-    .msgs-wrap { display: flex; flex-direction: column; gap: 4px; }
-    .msg-row { display: flex; gap: 4px; align-items: flex-start; }
-    .msg-row textarea { flex: 1; }
-    .btn-icon {
-      background: rgba(255,255,255,0.02);
-      border: none;
-      color: rgba(255,255,255,0.08);
-      padding: 6px 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 12px;
-    }
-    .btn-icon:hover { background: rgba(255,69,58,0.08); color: #ff453a; }
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255,255,255,0.02);
+        }
+        .btn-save {
+            background: #4f8cff;
+            border: none;
+            color: #06080f;
+            font-weight: 700;
+            padding: 10px 28px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 13px;
+        }
+        .btn-save:hover { background: #3a7ae6; transform: scale(1.02); }
+        .btn-cancel {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.02);
+            color: rgba(255,255,255,0.15);
+            padding: 10px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 13px;
+        }
+        .btn-cancel:hover { background: rgba(255,255,255,0.04); }
 
-    .modal-footer {
-      display: flex;
-      justify-content: flex-end;
-      gap: 8px;
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,0.03);
-    }
-    .btn-save {
-      background: #4f8cff;
-      border: none;
-      color: #0a0a12;
-      font-weight: 700;
-      padding: 10px 28px;
-      border-radius: 40px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 13px;
-    }
-    .btn-save:hover { background: #3a7ae6; transform: scale(1.02); }
-    .btn-cancel {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.03);
-      color: rgba(255,255,255,0.2);
-      padding: 10px 20px;
-      border-radius: 40px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 13px;
-    }
-    .btn-cancel:hover { background: rgba(255,255,255,0.04); }
+        /* ─── FOOTER ─── */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 16px 0;
+            border-top: 1px solid rgba(255,255,255,0.02);
+            font-size: 12px;
+            color: rgba(255,255,255,0.04);
+            letter-spacing: 3px;
+        }
+        .footer span {
+            color: #4f8cff;
+            text-shadow: 0 0 30px #4f8cff33, 0 0 60px #4f8cff11;
+            font-weight: 600;
+        }
 
-    /* ─── SCHEDULER TOGGLE ─── */
-    .toggle {
-      position: relative;
-      width: 40px;
-      height: 22px;
-      background: #2a2a3a;
-      border-radius: 40px;
-      cursor: pointer;
-      transition: all 0.3s;
-      flex-shrink: 0;
-    }
-    .toggle.active { background: #4f8cff; }
-    .toggle .knob {
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 18px;
-      height: 18px;
-      background: #fff;
-      border-radius: 50%;
-      transition: all 0.3s;
-    }
-    .toggle.active .knob { left: 20px; }
-
-    @media (max-width: 700px) {
-      .header { flex-direction: column; align-items: stretch; text-align: center; }
-      .header-stats { justify-content: center; }
-      .grid { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-      .form-group.full { grid-column: auto; }
-      .fetch-row { flex-wrap: wrap; }
-    }
-  </style>
+        @media (max-width: 700px) {
+            .header { flex-direction: column; align-items: stretch; text-align: center; }
+            .header-actions { justify-content: center; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full { grid-column: auto; }
+            .fetch-row { flex-wrap: wrap; }
+        }
+    </style>
 </head>
 <body>
 <div class="container">
-  <div class="header">
-    <div class="logo">
-      <span class="x">x</span><span class="sujal">SUJAL</span>
-      <span class="badge">AURA Z</span>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="logo">
+            <span class="x">x</span><span class="sujal">SUJAL</span><span class="z">Z</span>
+            <span class="badge">AURA Z</span>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-success" onclick="startAllBots()">▶ Start All</button>
+            <button class="btn btn-danger" onclick="stopAllBots()">■ Stop All</button>
+            <button class="btn btn-outline" onclick="exportBackup()">📥 Export</button>
+            <button class="btn btn-outline" onclick="document.getElementById('importInput').click()">📤 Import</button>
+            <input type="file" id="importInput" accept=".json" style="display:none;" onchange="importBackup(event)">
+            <button class="btn btn-primary" onclick="openAddModal()">+ New Account</button>
+            <a href="/logout" style="color:rgba(255,255,255,0.15);text-decoration:none;font-size:12px;padding:4px 12px;border:1px solid rgba(255,255,255,0.02);border-radius:40px;">Logout</a>
+        </div>
     </div>
-    <div class="header-stats">
-      <div class="hstat"><div class="num cyan" id="h-accounts">0</div><div class="lbl">Accounts</div></div>
-      <div class="hstat"><div class="num green" id="h-running">0</div><div class="lbl">Running</div></div>
-      <div class="hstat"><div class="num amber" id="h-sent">0</div><div class="lbl">Sent</div></div>
-      <button class="btn-primary" onclick="openAddModal()">+ New Account</button>
-      <a href="/logout" style="color:rgba(255,255,255,0.2);font-size:12px;text-decoration:none;">Logout</a>
+
+    <!-- STATS -->
+    <div class="stats-grid">
+        <div class="stat-card"><div class="label">Accounts</div><div class="number cyan" id="statAccounts">0</div><div class="sub">registered</div></div>
+        <div class="stat-card"><div class="label">Running</div><div class="number green" id="statRunning">0</div><div class="sub">active</div></div>
+        <div class="stat-card"><div class="label">Messages Sent</div><div class="number amber" id="statSent">0</div><div class="sub">total</div></div>
+        <div class="stat-card"><div class="label">Uptime</div><div class="number" style="color:#e8edf5;" id="statUptime">--:--:--</div><div class="sub">since start</div></div>
     </div>
-  </div>
 
-  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
-    <button class="btn btn-success" onclick="startAllBots()">▶ Start All</button>
-    <button class="btn btn-danger" onclick="stopAllBots()">■ Stop All</button>
-    <button class="btn btn-outline" onclick="exportBackup()">📥 Export Backup</button>
-    <button class="btn btn-outline" onclick="document.getElementById('importFile').click()">📤 Import Backup</button>
-    <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importBackup(event)"/>
-    <span style="color:rgba(255,255,255,0.1);font-size:11px;display:flex;align-items:center;">⚡ MADE BY xSUJAL</span>
-  </div>
+    <!-- ACCOUNT GRID -->
+    <div class="grid" id="accounts-wrap"></div>
 
-  <div class="grid" id="accounts-wrap"></div>
+    <!-- FOOTER -->
+    <div class="footer">✦ MADE BY <span>xSUJAL</span> ✦</div>
 </div>
 
-<!-- ─── MODAL ─── -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modal">
 <div class="modal">
-  <div class="modal-title"><span class="hl">✦</span> <span id="modal-title">Add Account</span></div>
-
-  <div class="form-section">
-    <div class="form-section-title">Credentials</div>
-    <div class="form-grid">
-      <div class="form-group"><label>Name</label><input type="text" id="f-name" placeholder="e.g. Main Bot" /></div>
-      <div class="form-group"><label>Session ID</label><input type="text" id="f-sid" placeholder="sessionid" autocomplete="off" /></div>
-      <div class="form-group"><label>CSRF Token</label><input type="text" id="f-csrf" placeholder="csrftoken (optional)" /></div>
-      <div class="form-group full"><label>Proxy (optional)</label><input type="text" id="f-proxy" placeholder="http://user:pass@ip:port" /></div>
-    </div>
-  </div>
-
-  <div class="form-section">
-    <div class="form-section-title">Group Chats (Max 5)</div>
-    <div class="fetch-row">
-      <div class="form-group" style="flex:1"><label>Fetch Groups</label></div>
-      <button class="btn-fetch" onclick="fetchGroups()">⚡ Fetch GCs</button>
-    </div>
-    <div id="fetch-status"></div>
-    <div class="gc-picker" id="gc-picker">
-      <div class="gc-list" id="gc-list"></div>
-      <div style="margin-top:4px;font-size:10px;color:rgba(255,255,255,0.08);"><span id="gc-count">0</span> / 5 selected</div>
-    </div>
-    <div class="form-group" style="margin-top:8px;">
-      <label>Or enter manually (one per line)</label>
-      <textarea id="f-groups" rows="3" placeholder="1234567890&#10;0987654321"></textarea>
-    </div>
-    <div class="form-group">
-      <label>Group Names (same order, one per line, optional)</label>
-      <textarea id="f-gnames" rows="3" placeholder="Group1&#10;Group2"></textarea>
-    </div>
-  </div>
-
-  <div class="form-section">
-    <div class="form-section-title">NC Titles (First title will be used, rotation in future)</div>
-    <div class="form-group"><input type="text" id="f-titles" placeholder="Title1, Title2, Title3" /></div>
-  </div>
-
-  <div class="form-section">
-    <div class="form-section-title">Messages (---MSG--- separated)</div>
-    <div class="msgs-wrap" id="msgs-wrap"></div>
-    <button class="btn-fetch" style="width:100%;justify-content:center;margin-top:4px;" onclick="addMsgField()">+ Add Message</button>
-  </div>
-
-  <div class="form-section">
-    <div class="form-section-title">Delays & Cooldowns</div>
-    <div class="form-grid">
-      <div class="form-group"><label>Min Delay (s)</label><input type="number" id="f-msg-min" value="2" step="0.5" /></div>
-      <div class="form-group"><label>Max Delay (s)</label><input type="number" id="f-msg-max" value="5" step="0.5" /></div>
-      <div class="form-group"><label>NC every N msgs (0=start only)</label><input type="number" id="f-nc-every-msgs" value="0" /></div>
-      <div class="form-group"><label>Cooldown after N msgs</label><input type="number" id="f-cooldown-after" value="0" /></div>
-      <div class="form-group"><label>Cooldown Duration (min)</label><input type="number" id="f-cooldown-dur" value="5" /></div>
-    </div>
-  </div>
-
-  <div class="form-section">
-    <div class="form-section-title">Scheduler (UTC)</div>
-    <div class="form-grid">
-      <div class="form-group"><label>Start Time</label><input type="time" id="f-sched-start" value="09:00" /></div>
-      <div class="form-group"><label>Stop Time</label><input type="time" id="f-sched-stop" value="18:00" /></div>
-      <div class="form-group full" style="display:flex;align-items:center;gap:8px;">
-        <label style="margin:0;">Enable Scheduler</label>
-        <div class="toggle" id="sched-toggle" onclick="toggleSched()"><div class="knob"></div></div>
-        <input type="hidden" id="f-sched-enabled" value="false" />
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-footer">
-    <button class="btn-cancel" onclick="closeModal()">Cancel</button>
-    <button class="btn-save" onclick="saveAccount()">Save</button>
-  </div>
+    <div class="modal-title"><span class="hl">✦</span> <span id="modal-title">Add Account</span></div>
+    <div id="modalBody"></div>
 </div>
 </div>
 
@@ -530,459 +540,507 @@ let editingId = null;
 let fetchedGroups = [];
 let selectedGCs = [];
 
-function toggleSched() {
-  const el = document.getElementById('sched-toggle');
-  el.classList.toggle('active');
-  document.getElementById('f-sched-enabled').value = el.classList.contains('active') ? 'true' : 'false';
-}
+// ─── HELPERS ──────────────────────────────────────────────────
+function $(id) { return document.getElementById(id); }
 
-// ── FETCH GROUPS ──────────────────────────────────────────────
+// ─── FETCH GROUPS ──────────────────────────────────────────────
 async function fetchGroups() {
-  const sid = document.getElementById('f-sid').value.trim();
-  if (!sid) { alert('Enter Session ID first'); return; }
-  const proxy = document.getElementById('f-proxy').value.trim();
-  const statusEl = document.getElementById('fetch-status');
-  statusEl.textContent = '⚡ Fetching...';
-  statusEl.style.color = '#ff9f0a';
-  try {
-    const r = await fetch('/api/fetch-groups', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({session_id: sid, proxy: proxy})
-    });
-    const d = await r.json();
-    if (d.groups && d.groups.length > 0) {
-      fetchedGroups = d.groups;
-      statusEl.textContent = `✅ ${d.groups.length} GCs found`;
-      statusEl.style.color = '#34c759';
-      renderGCPicker();
-    } else {
-      statusEl.textContent = '⚠️ No GCs found';
-      statusEl.style.color = '#ff9f0a';
+    const sid = document.getElementById('f-sid').value.trim();
+    if (!sid) { alert('Enter Session ID first'); return; }
+    const proxy = document.getElementById('f-proxy').value.trim();
+    const statusEl = document.getElementById('fetch-status');
+    statusEl.textContent = '⚡ Fetching...';
+    statusEl.style.color = '#ff9f0a';
+    try {
+        const r = await fetch('/api/fetch-groups', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({session_id: sid, acc_id: editingId || 'fetch_temp', proxy: proxy})
+        });
+        const d = await r.json();
+        if (d.groups && d.groups.length > 0) {
+            fetchedGroups = d.groups;
+            statusEl.textContent = `✅ ${d.groups.length} GCs found`;
+            statusEl.style.color = '#34c759';
+            renderGCPicker();
+            // Auto-select first 5
+            selectedGCs = [];
+            const toSelect = Math.min(5, d.groups.length);
+            for (let i = 0; i < toSelect; i++) {
+                selectedGCs.push({id: d.groups[i].id, name: d.groups[i].name});
+            }
+            renderGCPicker();
+            syncGroupsField();
+        } else {
+            statusEl.textContent = '⚠️ No GCs found';
+            statusEl.style.color = '#ff9f0a';
+        }
+    } catch(e) {
+        statusEl.textContent = `❌ Error: ${e.message}`;
+        statusEl.style.color = '#ff453a';
     }
-  } catch(e) {
-    statusEl.textContent = `❌ Error: ${e.message}`;
-    statusEl.style.color = '#ff453a';
-  }
 }
 
 function renderGCPicker() {
-  const picker = document.getElementById('gc-picker');
-  const list = document.getElementById('gc-list');
-  picker.style.display = 'block';
-  list.innerHTML = '';
-  fetchedGroups.forEach(g => {
-    const isSelected = selectedGCs.some(s => s.id === g.id);
-    const item = document.createElement('div');
-    item.className = 'gc-item' + (isSelected ? ' selected' : '');
-    item.innerHTML = `
-      <input type="checkbox" ${isSelected ? 'checked' : ''} data-id="${g.id}" data-name="${g.name}"/>
-      <span class="gc-item-name">${g.name}</span>
-      <span class="gc-item-id">${g.id}</span>
-    `;
-    const cb = item.querySelector('input');
-    cb.addEventListener('change', () => toggleGC(g.id, g.name, cb, item));
-    list.appendChild(item);
-  });
-  updateGCCount();
+    const picker = document.getElementById('gc-picker');
+    const list = document.getElementById('gc-list');
+    picker.style.display = 'block';
+    list.innerHTML = '';
+    fetchedGroups.forEach(g => {
+        const isSelected = selectedGCs.some(s => s.id === g.id);
+        const item = document.createElement('div');
+        item.className = 'gc-item' + (isSelected ? ' selected' : '');
+        item.innerHTML = `
+            <input type="checkbox" ${isSelected ? 'checked' : ''} data-id="${g.id}" data-name="${g.name}"/>
+            <span class="gc-item-name">${g.name}</span>
+            <span class="gc-item-id">${g.id}</span>
+        `;
+        const cb = item.querySelector('input');
+        cb.addEventListener('change', () => toggleGC(g.id, g.name, cb, item));
+        list.appendChild(item);
+    });
+    updateGCCount();
 }
 
 function toggleGC(id, name, cb, item) {
-  if (cb.checked) {
-    if (selectedGCs.length >= 5) {
-      cb.checked = false;
-      alert('Max 5 GCs allowed');
-      return;
+    if (cb.checked) {
+        if (selectedGCs.length >= 5) { cb.checked = false; alert('Max 5 GCs'); return; }
+        selectedGCs.push({id, name});
+        item.classList.add('selected');
+    } else {
+        selectedGCs = selectedGCs.filter(s => s.id !== id);
+        item.classList.remove('selected');
     }
-    selectedGCs.push({id, name});
-    item.classList.add('selected');
-  } else {
-    selectedGCs = selectedGCs.filter(s => s.id !== id);
-    item.classList.remove('selected');
-  }
-  updateGCCount();
+    updateGCCount();
+    syncGroupsField();
 }
 
 function updateGCCount() {
-  document.getElementById('gc-count').textContent = selectedGCs.length;
+    const el = document.getElementById('gc-count');
+    if (el) el.textContent = selectedGCs.length;
 }
 
-// ── MESSAGES ───────────────────────────────────────────────
-function addMsgField(val = 'Hello from AURA Z!') {
-  const wrap = document.getElementById('msgs-wrap');
-  const row = document.createElement('div');
-  row.className = 'msg-row';
-  row.innerHTML = `
-    <textarea placeholder="Type your message..." rows="3">${val}</textarea>
-    <button class="btn-icon" onclick="this.parentElement.remove()">✕</button>
-  `;
-  wrap.appendChild(row);
+function syncGroupsField() {
+    const el = document.getElementById('f-groups');
+    if (el) el.value = selectedGCs.map(s => s.id).join('\n');
+    const el2 = document.getElementById('f-gnames');
+    if (el2) el2.value = selectedGCs.map(s => s.name).join('\n');
+}
+
+// ─── MESSAGES ───────────────────────────────────────────────────
+function addMsgField(val = '') {
+    const wrap = document.getElementById('msgs-wrap');
+    const row = document.createElement('div');
+    row.className = 'msg-row';
+    row.innerHTML = `
+        <textarea placeholder="Type your message..." rows="3">${val}</textarea>
+        <button class="btn-icon" onclick="this.parentElement.remove()">✕</button>
+    `;
+    wrap.appendChild(row);
 }
 
 function getMsgs() {
-  return [...document.querySelectorAll('#msgs-wrap textarea')]
-    .map(t => t.value.trim()).filter(Boolean);
+    return [...document.querySelectorAll('#msgs-wrap textarea')].map(t => t.value.trim()).filter(Boolean);
 }
 
 function setMsgs(raw) {
-  document.getElementById('msgs-wrap').innerHTML = '';
-  const parts = raw.split('---MSG---').map(s => s.trim()).filter(Boolean);
-  if (parts.length === 0) { addMsgField('Hello from AURA Z!'); return; }
-  parts.forEach(p => addMsgField(p));
+    document.getElementById('msgs-wrap').innerHTML = '';
+    const parts = raw.split('---MSG---').map(s => s.trim()).filter(Boolean);
+    if (parts.length === 0) { addMsgField('🔥 Hey! How\'s everything going?'); return; }
+    parts.forEach(p => addMsgField(p));
 }
 
-// ── MODAL ──────────────────────────────────────────────────
+// ─── MODAL ──────────────────────────────────────────────────────
 function openAddModal() {
-  editingId = null;
-  fetchedGroups = [];
-  selectedGCs = [];
-  document.getElementById('modal-title').textContent = 'Add Account';
-  document.getElementById('f-name').value = '';
-  document.getElementById('f-sid').value = '';
-  document.getElementById('f-csrf').value = '';
-  document.getElementById('f-proxy').value = '';
-  document.getElementById('f-titles').value = '';
-  document.getElementById('f-msg-min').value = '2';
-  document.getElementById('f-msg-max').value = '5';
-  document.getElementById('f-nc-every-msgs').value = '0';
-  document.getElementById('f-cooldown-after').value = '0';
-  document.getElementById('f-cooldown-dur').value = '5';
-  document.getElementById('f-groups').value = '';
-  document.getElementById('f-gnames').value = '';
-  document.getElementById('f-sched-start').value = '09:00';
-  document.getElementById('f-sched-stop').value = '18:00';
-  document.getElementById('sched-toggle').classList.remove('active');
-  document.getElementById('f-sched-enabled').value = 'false';
-  document.getElementById('gc-picker').style.display = 'none';
-  document.getElementById('gc-list').innerHTML = '';
-  document.getElementById('gc-count').textContent = '0';
-  document.getElementById('fetch-status').textContent = '';
-  setMsgs('');
-  document.getElementById('modal').classList.add('open');
+    editingId = null;
+    fetchedGroups = [];
+    selectedGCs = [];
+    document.getElementById('modal-title').textContent = 'Add Account';
+    document.getElementById('f-name').value = '';
+    document.getElementById('f-sid').value = '';
+    document.getElementById('f-csrf').value = '';
+    document.getElementById('f-proxy').value = '';
+    document.getElementById('f-titles').value = '';
+    document.getElementById('f-msg-min').value = '2';
+    document.getElementById('f-msg-max').value = '5';
+    document.getElementById('f-nc-every-msgs').value = '0';
+    document.getElementById('f-cooldown-after').value = '0';
+    document.getElementById('f-cooldown-dur').value = '5';
+    document.getElementById('f-groups').value = '';
+    document.getElementById('f-gnames').value = '';
+    document.getElementById('gc-picker').style.display = 'none';
+    document.getElementById('gc-list').innerHTML = '';
+    document.getElementById('gc-count').textContent = '0';
+    document.getElementById('fetch-status').textContent = '';
+    setMsgs('');
+    document.getElementById('modal').classList.add('open');
 }
 
 function openEditModal(id) {
-  editingId = id;
-  const acc = accounts[id];
-  selectedGCs = [];
-  const savedGroups = acc.groups ? acc.groups.split('\n').filter(Boolean) : [];
-  const savedNames  = acc.group_names ? acc.group_names.split('\n').filter(Boolean) : [];
-  savedGroups.forEach((gid, i) => {
-    selectedGCs.push({id: gid.trim(), name: savedNames[i] || gid.trim()});
-  });
-  fetchedGroups = [];
-
-  document.getElementById('modal-title').textContent = 'Edit Account';
-  document.getElementById('f-name').value = acc.name || '';
-  document.getElementById('f-sid').value = acc.session_id || '';
-  document.getElementById('f-csrf').value = acc.csrf_token || '';
-  document.getElementById('f-proxy').value = acc.proxy || '';
-  document.getElementById('f-titles').value = acc.nc_titles || '';
-  document.getElementById('f-msg-min').value = acc.msg_delay_min || '2';
-  document.getElementById('f-msg-max').value = acc.msg_delay_max || '5';
-  document.getElementById('f-nc-every-msgs').value = acc.nc_every_msgs || '0';
-  document.getElementById('f-cooldown-after').value = acc.cooldown_after || '0';
-  document.getElementById('f-cooldown-dur').value = acc.cooldown_dur || '5';
-  document.getElementById('f-groups').value = savedGroups.join('\n');
-  document.getElementById('f-gnames').value = savedNames.join('\n');
-  document.getElementById('f-sched-start').value = acc.schedule_start || '09:00';
-  document.getElementById('f-sched-stop').value = acc.schedule_stop || '18:00';
-  if (acc.schedule_enabled) {
-    document.getElementById('sched-toggle').classList.add('active');
-    document.getElementById('f-sched-enabled').value = 'true';
-  } else {
-    document.getElementById('sched-toggle').classList.remove('active');
-    document.getElementById('f-sched-enabled').value = 'false';
-  }
-  document.getElementById('fetch-status').textContent = '';
-
-  if (selectedGCs.length > 0) {
+    editingId = id;
+    const acc = accounts[id];
+    selectedGCs = [];
+    const savedGroups = acc.groups ? acc.groups.split('\n').filter(Boolean) : [];
+    const savedNames = acc.group_names ? acc.group_names.split('\n').filter(Boolean) : [];
+    savedGroups.forEach((gid, i) => {
+        selectedGCs.push({id: gid.trim(), name: savedNames[i] || gid.trim()});
+    });
     fetchedGroups = selectedGCs.map(s => ({id: s.id, name: s.name}));
-    renderGCPicker();
-  } else {
-    document.getElementById('gc-picker').style.display = 'none';
-  }
-  setMsgs(acc.messages || acc.message || 'Hello from AURA Z!');
-  document.getElementById('modal').classList.add('open');
+
+    document.getElementById('modal-title').textContent = 'Edit Account';
+    document.getElementById('f-name').value = acc.name || '';
+    document.getElementById('f-sid').value = acc.session_id || '';
+    document.getElementById('f-csrf').value = acc.csrf_token || '';
+    document.getElementById('f-proxy').value = acc.proxy || '';
+    document.getElementById('f-titles').value = acc.nc_titles || '';
+    document.getElementById('f-msg-min').value = acc.msg_delay_min || '2';
+    document.getElementById('f-msg-max').value = acc.msg_delay_max || '5';
+    document.getElementById('f-nc-every-msgs').value = acc.nc_every_msgs || '0';
+    document.getElementById('f-cooldown-after').value = acc.cooldown_after || '0';
+    document.getElementById('f-cooldown-dur').value = acc.cooldown_dur || '5';
+    document.getElementById('f-groups').value = savedGroups.join('\n');
+    document.getElementById('f-gnames').value = savedNames.join('\n');
+    document.getElementById('fetch-status').textContent = '';
+
+    if (selectedGCs.length > 0) {
+        renderGCPicker();
+    } else {
+        document.getElementById('gc-picker').style.display = 'none';
+    }
+    setMsgs(acc.messages || '');
+    document.getElementById('modal').classList.add('open');
 }
 
 function closeModal() {
-  document.getElementById('modal').classList.remove('open');
-  editingId = null;
+    document.getElementById('modal').classList.remove('open');
+    editingId = null;
 }
 
-// ── SAVE ───────────────────────────────────────────────────
-async function saveAccount() {
-  const msgs = getMsgs();
-  if (!msgs.length) { alert('Add at least one message'); return; }
+function getModalForm() {
+    return `
+        <div class="form-grid">
+            <div class="form-group"><label>Name</label><input id="f-name" placeholder="My Bot"/></div>
+            <div class="form-group"><label>Session ID</label><input id="f-sid" placeholder="sessionid" autocomplete="off"/></div>
+            <div class="form-group"><label>CSRF Token</label><input id="f-csrf" placeholder="csrftoken (optional)"/></div>
+            <div class="form-group"><label>Proxy</label><input id="f-proxy" placeholder="http://user:pass@ip:port"/></div>
+            <div class="form-group full"><label>Groups (one per line, max 5)</label>
+                <textarea id="f-groups" rows="3" placeholder="1234567890&#10;0987654321"></textarea>
+            </div>
+            <div class="form-group full"><label>Group Names (same order, optional)</label>
+                <textarea id="f-gnames" rows="3" placeholder="Group1&#10;Group2"></textarea>
+            </div>
+            <div class="form-group"><label>NC Titles (comma)</label><input id="f-titles" placeholder="Title1, Title2"/></div>
+            <div class="form-group"><label>Messages (---MSG--- separated)</label>
+                <div class="msgs-wrap" id="msgs-wrap"></div>
+                <button class="btn-fetch" style="width:100%;justify-content:center;margin-top:4px;" onclick="addMsgField()">+ Add Message</button>
+            </div>
+            <div class="form-group"><label>Min Delay (s)</label><input id="f-msg-min" type="number" value="2" step="0.5"/></div>
+            <div class="form-group"><label>Max Delay (s)</label><input id="f-msg-max" type="number" value="5" step="0.5"/></div>
+            <div class="form-group"><label>NC every N msgs</label><input id="f-nc-every-msgs" type="number" value="0"/></div>
+            <div class="form-group"><label>Cooldown after N msgs</label><input id="f-cooldown-after" type="number" value="0"/></div>
+            <div class="form-group"><label>Cooldown Duration (min)</label><input id="f-cooldown-dur" type="number" value="5" step="0.5"/></div>
+            <div class="form-group full">
+                <div class="fetch-row">
+                    <div style="flex:1"><label>Fetch Groups</label></div>
+                    <button class="btn-fetch" onclick="fetchGroups()">⚡ Fetch GCs</button>
+                </div>
+                <div id="fetch-status"></div>
+                <div class="gc-picker" id="gc-picker">
+                    <div class="gc-list" id="gc-list"></div>
+                    <div style="margin-top:4px;font-size:10px;color:rgba(255,255,255,0.06);"><span id="gc-count">0</span> / 5 selected</div>
+                </div>
+            </div>
+            <div class="form-group full" style="margin-top:8px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;background:rgba(0,0,0,0.15);padding:8px 12px;border-radius:12px;">
+                <label style="font-size:10px;color:rgba(255,255,255,0.2);">⏰ Schedule</label>
+                <input type="time" id="f-schedule-start" value="09:00" style="width:100px;"/>
+                <span style="color:rgba(255,255,255,0.05);">→</span>
+                <input type="time" id="f-schedule-stop" value="18:00" style="width:100px;"/>
+                <div class="toggle" id="scheduleToggle" onclick="toggleScheduleSwitch()" style="position:relative;width:36px;height:20px;background:#2a2a3a;border-radius:40px;cursor:pointer;transition:0.3s;">
+                    <div class="knob" style="position:absolute;top:2px;left:2px;width:16px;height:16px;background:#fff;border-radius:50%;transition:0.3s;"></div>
+                </div>
+                <input type="hidden" id="f-schedule-enabled" value="false"/>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+            <button class="btn-save" onclick="saveAccount()">Save</button>
+        </div>
+    `;
+}
 
-  // ─── GROUPS: Manual or Fetched ──────────────────────────
-  let finalGroups = selectedGCs;
-  if (finalGroups.length === 0) {
-    const manualGroups = document.getElementById('f-groups').value.trim();
-    const manualNames = document.getElementById('f-gnames').value.trim();
-    if (manualGroups) {
-      const gids = manualGroups.split('\n').filter(Boolean);
-      const gnames = manualNames ? manualNames.split('\n').filter(Boolean) : [];
-      finalGroups = gids.map((id, i) => ({
-        id: id.trim(),
-        name: gnames[i] ? gnames[i].trim() : id.trim()
-      }));
+function toggleScheduleSwitch() {
+    const toggle = document.getElementById('scheduleToggle');
+    const hidden = document.getElementById('f-schedule-enabled');
+    toggle.classList.toggle('active');
+    hidden.value = toggle.classList.contains('active') ? 'true' : 'false';
+    if (toggle.classList.contains('active')) {
+        toggle.style.background = '#4f8cff';
+        toggle.querySelector('.knob').style.left = '18px';
+    } else {
+        toggle.style.background = '#2a2a3a';
+        toggle.querySelector('.knob').style.left = '2px';
     }
-  }
-
-  const body = {
-    name:            document.getElementById('f-name').value.trim(),
-    session_id:      document.getElementById('f-sid').value.trim(),
-    csrf_token:      document.getElementById('f-csrf').value.trim(),
-    proxy:           document.getElementById('f-proxy').value.trim(),
-    groups:          finalGroups.map(s => s.id).join('\n'),
-    group_names:     finalGroups.map(s => s.name).join('\n'),
-    nc_titles:       document.getElementById('f-titles').value.trim(),
-    messages:        msgs.join('---MSG---'),
-    msg_delay_min:   parseFloat(document.getElementById('f-msg-min').value),
-    msg_delay_max:   parseFloat(document.getElementById('f-msg-max').value),
-    nc_every_msgs:   parseInt(document.getElementById('f-nc-every-msgs').value),
-    cooldown_after:  parseInt(document.getElementById('f-cooldown-after').value),
-    cooldown_dur:    parseFloat(document.getElementById('f-cooldown-dur').value),
-    schedule_start:  document.getElementById('f-sched-start').value,
-    schedule_stop:   document.getElementById('f-sched-stop').value,
-    schedule_enabled: document.getElementById('f-sched-enabled').value === 'true'
-  };
-
-  if (!body.name) { alert('Enter account name'); return; }
-  if (!body.session_id && !editingId) { alert('Session ID required'); return; }
-
-  const url    = editingId ? `/api/accounts/${editingId}` : '/api/accounts';
-  const method = editingId ? 'PUT' : 'POST';
-  const r = await fetch(url, {method, headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
-  const d = await r.json();
-  if (d.success) { closeModal(); loadAccounts(); }
-  else alert(d.error || 'Save failed');
 }
 
-// ── CONTROLS ───────────────────────────────────────────────
+// ─── SAVE ───────────────────────────────────────────────────────
+async function saveAccount() {
+    const msgs = getMsgs();
+    if (!msgs.length) { alert('Add at least one message'); return; }
+
+    let finalGroups = selectedGCs;
+    if (finalGroups.length === 0) {
+        const manualGroups = document.getElementById('f-groups').value.trim();
+        const manualNames = document.getElementById('f-gnames').value.trim();
+        if (manualGroups) {
+            const gids = manualGroups.split('\n').filter(Boolean);
+            const gnames = manualNames ? manualNames.split('\n').filter(Boolean) : [];
+            finalGroups = gids.map((id, i) => ({
+                id: id.trim(),
+                name: gnames[i] ? gnames[i].trim() : id.trim()
+            }));
+        }
+    }
+
+    const body = {
+        name: document.getElementById('f-name').value.trim(),
+        session_id: document.getElementById('f-sid').value.trim(),
+        csrf_token: document.getElementById('f-csrf').value.trim(),
+        proxy: document.getElementById('f-proxy').value.trim(),
+        groups: finalGroups.map(s => s.id).join('\n'),
+        group_names: finalGroups.map(s => s.name).join('\n'),
+        nc_titles: document.getElementById('f-titles').value.trim(),
+        messages: msgs.join('---MSG---'),
+        msg_delay_min: parseFloat(document.getElementById('f-msg-min').value),
+        msg_delay_max: parseFloat(document.getElementById('f-msg-max').value),
+        nc_every_msgs: parseInt(document.getElementById('f-nc-every-msgs').value),
+        cooldown_after: parseInt(document.getElementById('f-cooldown-after').value),
+        cooldown_dur: parseFloat(document.getElementById('f-cooldown-dur').value),
+        schedule_enabled: document.getElementById('f-schedule-enabled').value === 'true',
+        schedule_start: document.getElementById('f-schedule-start').value,
+        schedule_stop: document.getElementById('f-schedule-stop').value,
+    };
+
+    if (!body.name) { alert('Enter account name'); return; }
+    if (!body.session_id && !editingId) { alert('Session ID required'); return; }
+
+    const url = editingId ? `/api/accounts/${editingId}` : '/api/accounts';
+    const method = editingId ? 'PUT' : 'POST';
+    const r = await fetch(url, {method, headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
+    const d = await r.json();
+    if (d.success) { closeModal(); loadAccounts(); }
+    else alert(d.error || 'Save failed');
+}
+
+// ─── CONTROLS ──────────────────────────────────────────────────
 async function startBot(id) {
-  const r = await fetch(`/api/accounts/${id}/start`, {method:'POST'});
-  const d = await r.json();
-  if (!d.success) alert(d.error || 'Start failed');
+    const r = await fetch(`/api/accounts/${id}/start`, {method:'POST'});
+    const d = await r.json();
+    if (!d.success) alert(d.error || 'Start failed');
 }
 
 async function stopBot(id) {
-  await fetch(`/api/accounts/${id}/stop`, {method:'POST'});
+    await fetch(`/api/accounts/${id}/stop`, {method:'POST'});
 }
 
 async function deleteAcc(id) {
-  if (!confirm('Delete this account?')) return;
-  await fetch(`/api/accounts/${id}`, {method:'DELETE'});
-  loadAccounts();
+    if (!confirm('Delete this account?')) return;
+    await fetch(`/api/accounts/${id}`, {method:'DELETE'});
+    loadAccounts();
 }
 
 function toggleLogs(id) {
-  const el = document.getElementById(`log-panel-${id}`);
-  if (el) el.classList.toggle('open');
+    const el = document.getElementById(`log-panel-${id}`);
+    if (el) el.classList.toggle('open');
 }
 
 function toggleDetail(id) {
-  const el = document.getElementById(`detail-${id}`);
-  if (el) el.classList.toggle('open');
+    const el = document.getElementById(`detail-${id}`);
+    if (el) el.classList.toggle('open');
 }
 
 async function startAllBots() {
-  if (!confirm('Start all bots?')) return;
-  await fetch('/api/accounts/start-all', {method:'POST'});
-  loadAccounts();
+    if (!confirm('Start all bots?')) return;
+    await fetch('/api/accounts/start-all', {method:'POST'});
+    loadAccounts();
 }
 
 async function stopAllBots() {
-  if (!confirm('Stop all bots?')) return;
-  await fetch('/api/accounts/stop-all', {method:'POST'});
-  loadAccounts();
+    if (!confirm('Stop all bots?')) return;
+    await fetch('/api/accounts/stop-all', {method:'POST'});
+    loadAccounts();
 }
 
 async function exportBackup() {
-  const r = await fetch('/api/backup/export');
-  const data = await r.json();
-  const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `aura_z_backup_${new Date().toISOString().slice(0,10)}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
+    const r = await fetch('/api/backup/export');
+    const data = await r.json();
+    const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `aura_z_backup_${new Date().toISOString().slice(0,10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
 }
 
 async function importBackup(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  const text = await file.text();
-  const data = JSON.parse(text);
-  await fetch('/api/backup/import', {
-    method: 'POST',
-    headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({data: data.data || data})
-  });
-  alert('Backup imported!');
-  loadAccounts();
+    const file = event.target.files[0];
+    if (!file) return;
+    const text = await file.text();
+    const data = JSON.parse(text);
+    if (!data.accounts) { alert('Invalid backup'); return; }
+    await fetch('/api/backup/import', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({data: data})
+    });
+    alert('Backup imported!');
+    loadAccounts();
 }
 
-// ── RENDER ─────────────────────────────────────────────────
+// ─── RENDER ────────────────────────────────────────────────────
 function fmtTime(secs) {
-  if (!secs || secs < 0) return '--:--:--';
-  const h = Math.floor(secs/3600);
-  const m = Math.floor((secs%3600)/60);
-  const s = Math.floor(secs%60);
-  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    if (!secs || secs < 0) return '--:--:--';
+    const h = Math.floor(secs/3600);
+    const m = Math.floor((secs%3600)/60);
+    const s = Math.floor(secs%60);
+    return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
 }
 
 function renderAccounts(data) {
-  const wrap = document.getElementById('accounts-wrap');
-  const ids = Object.keys(data);
+    const wrap = document.getElementById('accounts-wrap');
+    const ids = Object.keys(data);
 
-  if (ids.length === 0) {
-    wrap.innerHTML = `<div class="empty"><div class="empty-icon">◆</div><div class="empty-text">No accounts yet.<br>Click "New Account" to start.</div></div>`;
-    return;
-  }
-
-  let totalRunning = 0, totalSent = 0;
-  ids.forEach(id => {
-    const st = data[id].status || {};
-    if (st.running) totalRunning++;
-    totalSent += st.sent || 0;
-  });
-  document.getElementById('h-accounts').textContent = ids.length;
-  document.getElementById('h-running').textContent  = totalRunning;
-  document.getElementById('h-sent').textContent     = totalSent;
-
-  ids.forEach(id => {
-    const acc = data[id];
-    const st  = acc.status || {};
-    const isRunning = st.running;
-    const isCooldown = st.cooldown;
-    const runtime = st.runtime_secs ? fmtTime(st.runtime_secs) : '--:--:--';
-    const cooldownStr = st.cooldown && st.cooldown_remaining > 0
-      ? ' 😴 ' + fmtTime(st.cooldown_remaining)
-      : (isCooldown ? ' 🔄 CD' : '');
-    const dotCls = isCooldown ? 'cooldown' : (isRunning ? 'on' : 'off');
-    const gcNames = acc.group_names ? acc.group_names.split('\n').filter(Boolean) : [];
-
-    let existing = document.getElementById(`card-${id}`);
-    if (!existing) {
-      existing = document.createElement('div');
-      existing.className = 'card';
-      existing.id = `card-${id}`;
-      wrap.appendChild(existing);
+    if (ids.length === 0) {
+        wrap.innerHTML = `<div class="empty"><div class="empty-icon">✦</div><div class="empty-text">No accounts yet.<br>Click "New Account" to start.</div></div>`;
+        return;
     }
 
-    const existingLogPanel = document.getElementById(`log-panel-${id}`);
-    const logOpen = existingLogPanel ? existingLogPanel.classList.contains('open') : false;
-    const detailOpen = document.getElementById(`detail-${id}`)?.classList.contains('open') || false;
+    let totalRunning = 0, totalSent = 0;
+    ids.forEach(id => {
+        const st = data[id].status || {};
+        if (st.running) totalRunning++;
+        totalSent += st.sent || 0;
+    });
+    document.getElementById('statAccounts').textContent = ids.length;
+    document.getElementById('statRunning').textContent = totalRunning;
+    document.getElementById('statSent').textContent = totalSent;
 
-    existing.innerHTML = `
-      <div class="card-top">
-        <div class="status-dot ${dotCls}"></div>
-        <div class="card-name">${acc.name || id} ${cooldownStr}</div>
-        <div class="card-time">${runtime}</div>
-      </div>
-      <div class="card-stats">
-        <span><strong>${st.sent||0}</strong> sent</span>
-        <span><strong>${st.failed||0}</strong> failed</span>
-        <span><strong>${st.nc_done||0}</strong> NC</span>
-      </div>
-      <div class="card-actions">
-        ${isRunning
-          ? `<button class="btn-sm btn-sm-stop" onclick="stopBot('${id}')">Stop</button>`
-          : `<button class="btn-sm btn-sm-start" onclick="startBot('${id}')">Start</button>`}
-        <button class="btn-sm btn-sm-logs" onclick="toggleLogs('${id}')">Logs</button>
-        <button class="btn-sm btn-sm-edit" onclick="openEditModal('${id}')">Edit</button>
-        <button class="btn-sm btn-sm-del" onclick="deleteAcc('${id}')">✕</button>
-        <button class="btn-sm btn-sm-expand" onclick="toggleDetail('${id}')">⌃</button>
-      </div>
-      <div class="card-detail ${detailOpen ? 'open' : ''}" id="detail-${id}">
-        ${gcNames.length ? `<div>${gcNames.map(n=>`<span class="gc-pill">${n}</span>`).join('')}</div>` : ''}
-        <div class="detail-line"><strong>Delay:</strong> ${acc.msg_delay_min||2}s – ${acc.msg_delay_max||5}s</div>
-        ${acc.cooldown_after > 0 ? `<div class="detail-line"><strong>Cooldown:</strong> ${acc.cooldown_after} → ${acc.cooldown_dur}min</div>` : ''}
-        ${acc.nc_titles ? `<div class="detail-line"><strong>NC Titles:</strong> ${acc.nc_titles.split(',').length}</div>` : ''}
-        ${acc.schedule_enabled ? `<div class="detail-line"><strong>Scheduler:</strong> ${acc.schedule_start} – ${acc.schedule_stop} (UTC)</div>` : ''}
-        <div class="last-action-text">❯ ${st.last_action||'Idle'}</div>
-        <div class="log-panel ${logOpen ? 'open' : ''}" id="log-panel-${id}">
-          <div class="log-header">
-            <span>Console</span>
-            <span class="log-live">LIVE</span>
-          </div>
-          <div class="log-box" id="log-box-${id}"></div>
-        </div>
-      </div>
-    `;
-  });
+    ids.forEach(id => {
+        const acc = data[id];
+        const st = acc.status || {};
+        const dot = st.running ? 'on' : (st.cooldown ? 'cooldown' : 'off');
+        const runtime = st.runtime_secs ? fmtTime(st.runtime_secs) : '--:--:--';
+        const cooldownStr = st.cooldown && st.cooldown_remaining > 0 ? ' 😴 ' + fmtTime(st.cooldown_remaining) : '';
+        const gcNames = acc.group_names ? acc.group_names.split('\n').filter(Boolean) : [];
 
-  wrap.querySelectorAll('.card').forEach(el => {
-    if (!data[el.id.replace('card-','')]) el.remove();
-  });
+        let existing = document.getElementById(`card-${id}`);
+        if (!existing) {
+            existing = document.createElement('div');
+            existing.className = 'card';
+            existing.id = `card-${id}`;
+            wrap.appendChild(existing);
+        }
+
+        const logOpen = document.getElementById(`log-panel-${id}`)?.classList.contains('open') || false;
+        const detailOpen = document.getElementById(`detail-${id}`)?.classList.contains('open') || false;
+
+        existing.innerHTML = `
+            <div class="card-top">
+                <div class="status-dot ${dot}"></div>
+                <div class="card-name">${acc.name || id} ${cooldownStr}</div>
+                <div class="card-time">${runtime}</div>
+            </div>
+            <div class="card-stats">
+                <span><strong>${st.sent||0}</strong> sent</span>
+                <span><strong>${st.failed||0}</strong> fail</span>
+                <span><strong>${st.nc_done||0}</strong> NC</span>
+            </div>
+            <div class="card-actions">
+                ${st.running ? `<button class="btn-sm btn-sm-stop" onclick="stopBot('${id}')">Stop</button>` : `<button class="btn-sm btn-sm-start" onclick="startBot('${id}')">Start</button>`}
+                <button class="btn-sm btn-sm-logs" onclick="toggleLogs('${id}')">Logs</button>
+                <button class="btn-sm btn-sm-edit" onclick="openEditModal('${id}')">Edit</button>
+                <button class="btn-sm btn-sm-del" onclick="deleteAcc('${id}')">✕</button>
+                <button class="btn-sm btn-sm-expand" onclick="toggleDetail('${id}')">⌃</button>
+            </div>
+            <div class="card-detail ${detailOpen ? 'open' : ''}" id="detail-${id}">
+                ${gcNames.length ? `<div>${gcNames.map(n=>`<span class="gc-pill">${n}</span>`).join('')}</div>` : ''}
+                <div class="detail-line"><strong>Delay:</strong> ${acc.msg_delay_min||2}s – ${acc.msg_delay_max||5}s</div>
+                ${acc.cooldown_after > 0 ? `<div class="detail-line"><strong>Cooldown:</strong> ${acc.cooldown_after} → ${acc.cooldown_dur}min</div>` : ''}
+                ${acc.nc_titles ? `<div class="detail-line"><strong>NC Titles:</strong> ${acc.nc_titles.split(',').length}</div>` : ''}
+                ${acc.schedule_enabled ? `<div class="detail-line"><strong>Schedule:</strong> ${acc.schedule_start || '09:00'} → ${acc.schedule_stop || '18:00'}</div>` : ''}
+                <div class="last-action-text">❯ ${st.last_action || 'Idle'}</div>
+                <div class="log-panel ${logOpen ? 'open' : ''}" id="log-panel-${id}">
+                    <div class="log-header"><span>Console</span><span class="log-live">LIVE</span></div>
+                    <div class="log-box" id="log-box-${id}"></div>
+                </div>
+            </div>
+        `;
+    });
+
+    wrap.querySelectorAll('.card').forEach(el => {
+        if (!data[el.id.replace('card-','')]) el.remove();
+    });
 }
 
 function colorLog(line) {
-  if (line.includes('✅') || line.includes('✓')) return 'ok';
-  if (line.includes('❌') || line.includes('failed') || line.includes('Failed')) return 'err';
-  if (line.includes('⚠️')) return 'warn';
-  if (line.includes('🔄') || line.includes('Round')) return 'info';
-  if (line.includes('💤') || line.includes('⏭') || line.includes('😴')) return 'info';
-  return '';
+    if (line.includes('✅') || line.includes('✓')) return 'ok';
+    if (line.includes('❌') || line.includes('failed')) return 'err';
+    if (line.includes('⚠️')) return 'warn';
+    if (line.includes('🔄')) return 'info';
+    if (line.includes('💤') || line.includes('😴')) return 'info';
+    return '';
 }
 
-// ── POLL ───────────────────────────────────────────────────
+// ─── POLLING ──────────────────────────────────────────────────
 async function loadAccounts() {
-  try {
-    const r = await fetch('/api/accounts');
-    accounts = await r.json();
-    renderAccounts(accounts);
-  } catch(e) { console.error('Load error', e); }
+    try {
+        const r = await fetch('/api/accounts');
+        accounts = await r.json();
+        renderAccounts(accounts);
+    } catch(e) { console.error(e); }
 }
 
 async function pollLogs() {
-  const openPanels = document.querySelectorAll('.log-panel.open');
-  for (const panel of openPanels) {
-    const id = panel.id.replace('log-panel-','');
-    try {
-      const r = await fetch(`/api/accounts/${id}/logs`);
-      const d = await r.json();
-      const box = document.getElementById(`log-box-${id}`);
-      if (box && d.logs) {
-        const currentCount = box.querySelectorAll('.log-line').length;
-        if (currentCount === 0) {
-          box.innerHTML = d.logs.map(l => `<div class="log-line ${colorLog(l)}">${l}</div>`).join('');
-          box.scrollTop = box.scrollHeight;
-        } else if (d.logs.length > currentCount) {
-          const atBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 40;
-          const newLines = d.logs.slice(currentCount);
-          newLines.forEach(l => {
-            const div = document.createElement('div');
-            div.className = `log-line ${colorLog(l)}`;
-            div.textContent = l;
-            box.appendChild(div);
-          });
-          if (atBottom) box.scrollTop = box.scrollHeight;
-        }
-      }
-    } catch(e) {}
-  }
+    document.querySelectorAll('.log-panel.open').forEach(panel => {
+        const id = panel.id.replace('log-panel-','');
+        fetch(`/api/accounts/${id}/logs`).then(r => r.json()).then(d => {
+            const box = document.getElementById(`log-box-${id}`);
+            if (box && d.logs) {
+                const current = box.querySelectorAll('.log-line').length;
+                if (current === 0) {
+                    box.innerHTML = d.logs.map(l => `<div class="log-line ${colorLog(l)}">${l}</div>`).join('');
+                    box.scrollTop = box.scrollHeight;
+                } else if (d.logs.length > current) {
+                    const newLines = d.logs.slice(current);
+                    newLines.forEach(l => {
+                        const div = document.createElement('div');
+                        div.className = `log-line ${colorLog(l)}`;
+                        div.textContent = l;
+                        box.appendChild(div);
+                    });
+                    if (box.scrollHeight - box.scrollTop - box.clientHeight < 40) box.scrollTop = box.scrollHeight;
+                }
+            }
+        }).catch(()=>{});
+    });
 }
 
-// ── INIT ────────────────────────────────────────────────────
+// ─── INIT ─────────────────────────────────────────────────────
 loadAccounts();
+let uptimeStart = Date.now();
+setInterval(() => {
+    const diff = Math.floor((Date.now() - uptimeStart) / 1000);
+    document.getElementById('statUptime').textContent = fmtTime(diff);
+}, 1000);
 setInterval(loadAccounts, 4000);
 setInterval(pollLogs, 1500);
 
 document.getElementById('modal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
+    if (e.target === this) closeModal();
 });
-</script>
 
-<!-- FOOTER -->
-<footer style="text-align:center;margin-top:40px;padding:20px 0;border-top:1px solid rgba(255,255,255,0.03);">
-  <span style="color:rgba(255,255,255,0.08);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:2px;">
-    ⚡ MADE BY xSUJAL ⚡
-  </span>
-</footer>
+// ─── MODAL BODY INIT ──────────────────────────────────────────
+document.getElementById('modalBody').innerHTML = getModalForm();
+</script>
 </body>
 </html>
