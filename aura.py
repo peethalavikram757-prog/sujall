@@ -1,4 +1,4 @@
-Zimport json, os, threading, time, collections, random, urllib.parse, hashlib
+import json, os, threading, time, collections, random, urllib.parse, hashlib
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for
 from instagrapi import Client
 from apscheduler.schedulers.background import BackgroundScheduler
